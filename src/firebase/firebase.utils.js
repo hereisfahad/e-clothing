@@ -15,7 +15,30 @@ const firebaseConfig = {
   messagingSenderId: "771374338444",
   appId: "1:771374338444:web:2d6445dfa97975b3"
 };
+
+export const createUserDocumentInFireStore = async (userAuth, additionalData) =>{
+  if(!userAuth) return;
+  const userRef = firestore.doc(`users/${userAuth.uid}`); //getting user refernce
+  // let docRef = db.collection('users').doc('alovelace');
+  const snapShot = await userRef.get();//getting snapshot to check weather it exists in firestore or not
+  // console.log(snapShot);
+  if(!snapShot.exists){
+    const {displayName, email} = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({//adding user to firbase document which is present in collection
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
+  }   return userRef;
   
+}
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
