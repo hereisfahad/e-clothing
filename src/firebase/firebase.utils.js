@@ -24,9 +24,9 @@ export const firestore = firebase.firestore();
 
 //authentication with google
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt:'select_account'}); //optional
+// provider.setCustomParameters({prompt:'select_account'}); //optional
 
 // export const SignInWithGoogle = firebase.auth().signInWithPopup(provider);
-export const SignInWithGoogle = () =>firebase.auth().signInWithPopup(provider);
+export const SignInWithGoogle = () =>auth.signInWithPopup(provider);
 
 export default firebase;

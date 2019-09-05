@@ -28,7 +28,7 @@ class App extends React.Component {
     });
   }
 
-  // unSunscribeUser = null; //dont make sense to me
+  // unSunscribeUser = null; //does not make any sense
   // componentWillUnmount(){
   //   this.unSunscribeUser();
   // }

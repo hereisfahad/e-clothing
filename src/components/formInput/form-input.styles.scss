@@ -41,7 +41,7 @@ $main-color: black;
     color: $sub-color;
     font-size: 16px;
     font-weight: normal;
-    position: absolute;
+    position: absolute;//parent group has relative position
     pointer-events: none;
     left: 5px;
     top: 10px;

@@ -8,3 +8,4 @@ const CustomButton = ({children, isGoogleSignIn, ...otherProps}) => (
 );
 export default CustomButton;
 //otherProps is required as we are calling onClick by passing signInWithGoogle as prop
+//these are confusing time :)

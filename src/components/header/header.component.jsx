@@ -19,7 +19,7 @@ const Header = ({currentUser, handleSignOutState}) => (
                 <Link className="option" to="/contact">Contact</Link>
                 {
                     currentUser ?
-                    <Link className="option" to="/SignIn" onClick={handleSignOutState }>SignOut</Link>
+                    <Link className="option" to="" onClick={handleSignOutState }>SignOut</Link>
                     :
                     (<Link className="option" to="/SignIn">SignIn</Link>)
                 }

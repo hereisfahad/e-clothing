@@ -7,7 +7,6 @@ import {SignInWithGoogle} from '../../firebase/firebase.utils';
 class SignIn extends React.Component {
     constructor(props) {
       super(props);
-
       this.state = {
         email: '',
         password: ''
@@ -18,10 +17,10 @@ class SignIn extends React.Component {
         this.setState({ email: '', password: '' });
       };
     
-      handleChange = event => {
-        const { value, name } = event.target;
-        this.setState({ [name]: value });
-      };
+    handleChange = event => {
+      const { value, name } = event.target;
+      this.setState({ [name]: value });// set state with w.r.t its type
+    };
     render() {
         return(
             <div className='sign-in'>

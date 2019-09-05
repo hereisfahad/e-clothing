@@ -19,3 +19,4 @@ const MenuItem = ( { title, imageUrl, size, history, match, linkUrl } ) => (
 );
 
 export default withRouter(MenuItem);
+// withRouter working here ..</div>confusing right?
