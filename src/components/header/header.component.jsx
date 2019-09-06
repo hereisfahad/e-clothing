@@ -1,7 +1,7 @@
 //header component needs currentUser for navbar
 import React from 'react';
 import './header.styles.scss';
-import { Link, BrowserRouter, Route } from 'react-router-dom';
+import { Link, BrowserRouter, Route, Redirect } from 'react-router-dom';
 import {ReactComponent as Logo} from './crown.svg'
 
 import HomePage from '../../pages/homepage/homepage.component';
@@ -31,7 +31,7 @@ const Header = ({currentUser, handleSignOutState}) => (
         <Route path="/" exact component={HomePage} />
         <Route path="/shop/" component={ShopPage} />
         <Route path="/contact/" component={ShopPage} />
-        <Route path="/SignIn/" component={SignInAndSignUpPage} />
+        <Route exact path="/SignIn/"  render={()=> currentUser ? ( <Redirect to='./'/>) :<SignInAndSignUpPage/>} />
     </BrowserRouter>
 );
 
