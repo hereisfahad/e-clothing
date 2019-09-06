@@ -7,6 +7,7 @@ import {ReactComponent as Logo} from './crown.svg'
 import HomePage from '../../pages/homepage/homepage.component';
 import ShopPage from '../../pages/shopPage/shopPage.component';
 import SignInAndSignUpPage from '../../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import CartIcon from '../../components/cartIcon/cart-icon.component';
 import {auth} from '../../firebase/firebase.utils';//use brakets :)
 
 import { connect } from 'react-redux';
@@ -22,10 +23,11 @@ const Header = ({currentUser, handleSignOutState}) => (
                 <Link className="option" to="/contact">Contact</Link>
                 {
                     currentUser ?
-                    <Link className="option" to="" onClick={() => auth.signOut()}>SignOut</Link>
+                    <Link className="option" to="/SignIn/" onClick={() => auth.signOut()}>SignOut</Link>
                     :
                     (<Link className="option" to="/SignIn">SignIn</Link>)
                 }
+                <CartIcon />
             </div>
         </div>
         <Route path="/" exact component={HomePage} />
