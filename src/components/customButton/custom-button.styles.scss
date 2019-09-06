@@ -20,6 +20,10 @@
       color: black;
       border: 1px solid black;
     }
+    &:active {
+      transform: translatey(1px);
+      filter: saturate(150%);
+    }
     
     &.googleSingnIn{
       background-color: #4285f4;

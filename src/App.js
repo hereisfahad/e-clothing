@@ -29,14 +29,14 @@ class App extends React.Component {
               id:snapShot.id,
               ...snapShot.data()
             }
-          },()=>console.log(this.state));
-        })
-        
+          },()=>{
+            console.log(this.state)
+          });
+        }) 
       }else{
         this.setState({currentUser:null});
         console.log("No user is signed in");
       }
-
     });
   }
 

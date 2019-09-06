@@ -5,7 +5,7 @@ import {ReactComponent as Logo} from './crown.svg'
 
 import HomePage from '../../pages/homepage/homepage.component';
 import ShopPage from '../../pages/shopPage/shopPage.component';
-import SignIn from '../signIn/sign-in.component';
+import SignInAndSignUpPage from '../../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
 
 const Header = ({currentUser, handleSignOutState}) => (
@@ -28,7 +28,7 @@ const Header = ({currentUser, handleSignOutState}) => (
         <Route path="/" exact component={HomePage} />
         <Route path="/shop/" component={ShopPage} />
         <Route path="/contact/" component={ShopPage} />
-        <Route path="/SignIn/" component={SignIn} />
+        <Route path="/SignIn/" component={SignInAndSignUpPage} />
     </BrowserRouter>
 );
 
