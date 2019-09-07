@@ -1,5 +1,12 @@
 export const toggleCartHidden = () =>(
     {
-        type:'TOGGLE_CART_DROPDOWN'
+        type: 'TOGGLE_CART_DROPDOWN'
     }
 );
+
+export const addItem = (item) => (
+    {
+        type: 'ADD_ITEM',
+        payload: item
+    }
+)
