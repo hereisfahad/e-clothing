@@ -1,8 +1,8 @@
-const INTIAL_STATE={
+const INITIAL_STATE ={
     currentUser: null
 }
 
-const userReducer = (state = INTIAL_STATE, action) =>{
+const userReducer = (state = INITIAL_STATE, action) =>{
     switch(action.type){
         case 'SET_CURRENT_USER':
             return{

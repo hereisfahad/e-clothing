@@ -40,7 +40,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <Header handleSignOutState={this.handleSignOutState}/>
+        <Header/>
       </div>
     );
   }
