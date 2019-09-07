@@ -8,6 +8,7 @@ import HomePage from '../../pages/homepage/homepage.component';
 import ShopPage from '../../pages/shopPage/shopPage.component';
 import SignInAndSignUpPage from '../../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CartIcon from '../../components/cartIcon/cart-icon.component';
+import CardDropdown from '../../components/cartDropdown/cart-dropdown.component';
 import {auth} from '../../firebase/firebase.utils';//use brakets :)
 
 import { connect } from 'react-redux';
@@ -29,6 +30,7 @@ const Header = ({currentUser, handleSignOutState}) => (
                 }
                 <CartIcon />
             </div>
+            <CardDropdown/>
         </div>
         <Route path="/" exact component={HomePage} />
         <Route path="/shop/" component={ShopPage} />
