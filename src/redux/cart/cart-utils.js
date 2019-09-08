@@ -1,4 +1,4 @@
-export const addItemToCard = (cartItems, itemToAdd) => {
+export const addItemToCart = (cartItems, itemToAdd) => {
     const existing = cartItems.find( cartItem => cartItem.id === itemToAdd.id);
     if(existing){
         return cartItems.map(  cartItem =>
