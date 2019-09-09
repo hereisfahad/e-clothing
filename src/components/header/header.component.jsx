@@ -10,6 +10,8 @@ import CartIcon from '../../components/cartIcon/cart-icon.component';
 import CardDropdown from '../../components/cartDropdown/cart-dropdown.component';
 import {auth} from '../../firebase/firebase.utils';//use brakets :)
 
+import { selectCurrentUser } from '../../redux/user/user-selectors';
+import { selectHiddenState } from '../../redux/cart/cart-selectors';
 
 import {ReactComponent as Logo} from './crown.svg'
 import './header.styles.scss';
@@ -43,9 +45,9 @@ const Header = ({currentUser, hidden}) => (
     </BrowserRouter>
 );
 
-const mapStateToProps = ({user:{currentUser}, cart:{hidden}}) => ({
-    currentUser,
-    hidden
+const mapStateToProps = (state) => ({
+    currentUser: selectCurrentUser(state),
+    hidden: selectHiddenState(state)
 });
 export default connect(mapStateToProps)(Header);
 
