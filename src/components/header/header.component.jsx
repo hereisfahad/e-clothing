@@ -8,6 +8,7 @@ import ShopPage from '../../pages/shopPage/shopPage.component';
 import SignInAndSignUpPage from '../../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CartIcon from '../../components/cartIcon/cart-icon.component';
 import CardDropdown from '../../components/cartDropdown/cart-dropdown.component';
+import Checkout from '../../pages/chekcout/checkout.componenet';
 import {auth} from '../../firebase/firebase.utils';//use brakets :)
 
 import { selectCurrentUser } from '../../redux/user/user-selectors';
@@ -41,6 +42,7 @@ const Header = ({currentUser, hidden}) => (
         <Route path="/" exact component={HomePage} />
         <Route path="/shop/" component={ShopPage} />
         <Route path="/contact/" component={ShopPage} />
+        <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/SignIn/"  render={()=> currentUser ? ( <Redirect to='./'/>) :<SignInAndSignUpPage/>} />
     </BrowserRouter>
 );
