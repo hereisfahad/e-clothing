@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
     collections: [
         {
-          id: 1,
+          id: 'hats',
           title: 'Hats',
           routeName: 'hats',
           items: [
@@ -62,7 +62,7 @@ const INITIAL_STATE = {
           ]
         },
         {
-          id: 2,
+          id: 'sneakers',
           title: 'Sneakers',
           routeName: 'sneakers',
           items: [
@@ -117,7 +117,7 @@ const INITIAL_STATE = {
           ]
         },
         {
-          id: 3,
+          id: 'jackets',
           title: 'Jackets',
           routeName: 'jackets',
           items: [
@@ -154,7 +154,7 @@ const INITIAL_STATE = {
           ]
         },
         {
-          id: 4,
+          id: 'womens',
           title: 'Womens',
           routeName: 'womens',
           items: [
@@ -203,7 +203,7 @@ const INITIAL_STATE = {
           ]
         },
         {
-          id: 5,
+          id: 'mens',
           title: 'Mens',
           routeName: 'mens',
           items: [

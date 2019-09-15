@@ -6,3 +6,9 @@ export const selectShopCollections = createSelector(
     selectShop,
     shop => shop.collections
 )
+
+export const selectCollection = collectionURLparam  =>
+    createSelector(
+        selectShopCollections,
+        collections => collections.find( collection => collection.id === collectionURLparam)
+)

@@ -3,7 +3,9 @@ import {withRouter} from 'react-router-dom';
 
 import './menu-item.styles.scss';
 
-const MenuItem = ( { title, imageUrl, size, history, match, linkUrl } ) => (
+const MenuItem = ( { title, imageUrl, size, history, match, linkUrl } ) => {
+  // console.log(`${match.url}${linkUrl}`)
+  return(
   <div className= {`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <div
       className='background-image'
@@ -16,7 +18,7 @@ const MenuItem = ( { title, imageUrl, size, history, match, linkUrl } ) => (
       <span className='subtitle'>SHOP NOW</span>
     </div>
   </div>
-);
+)};
 
 export default withRouter(MenuItem);
 // withRouter working here ..</div>confusing right?
