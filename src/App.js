@@ -1,32 +1,38 @@
-// this component setCurrentUser by using redux
+// this component setCurrentUser by using contextApi
+import React from "react";
 
-import React from 'react';
-import './App.css';
+import Header from "./components/header/header.component";
+import { auth, createUserDocumentInFireStore } from "./firebase/firebase.utils"; //use brakets :)
 
-import Header from './components/header/header.component';
-import {auth, createUserDocumentInFireStore} from './firebase/firebase.utils';//use brakets :)
-import { setCurrentUser } from './redux/user/user-actions';
-
-import { connect } from 'react-redux';
+import UserContext from "./context/user/user.context";
+import "./App.css";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: null
+    };
+  }
 
-  componentDidMount(){
-    const { setCurrentUser } = this.props;
-    auth.onAuthStateChanged(async (userAuth) => {
+  componentDidMount() {
+    // const { setCurrentUser } = this.props;
+    auth.onAuthStateChanged(async userAuth => {
       // console.log(userAuth);//obj rcvd frm onAuthStateChanged
-      if(userAuth){   //if we are loggedIn and the return object is not null
-        const userRef = await createUserDocumentInFireStore(userAuth);    //create user in firestore collection
-        userRef.onSnapshot(snapShot =>{    //snapshot holds ID and snapShot.data() gives us the data
-          setCurrentUser({
-            currentUser:{
-              id:snapShot.id,
+      if (userAuth) {
+        //if we are loggedIn and the return object is not null
+        const userRef = await createUserDocumentInFireStore(userAuth); //create user in firestore collection
+        userRef.onSnapshot(snapShot => {
+          //snapshot holds ID and snapShot.data() gives us the data
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
               ...snapShot.data()
             }
           });
-        }) 
-      }else{
-        setCurrentUser(userAuth);
+        });
+      } else {
+        this.setState({ currentUser: userAuth });
         console.log("No user is signed in");
       }
     });
@@ -37,22 +43,18 @@ class App extends React.Component {
   //   this.unSunscribeUser();
   // }
 
-  render(){
+  render() {
     return (
       <div>
-        <Header/>
+        <UserContext.Provider value={this.state.currentUser}>
+          <Header />
+        </UserContext.Provider>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) =>({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
-});
-
-export default connect(null, mapDispatchToProps)(App);
-
-
+export default App;
 
 /*<BrowserRouter >
         <Switch>
