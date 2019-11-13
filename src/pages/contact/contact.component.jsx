@@ -15,8 +15,7 @@ function Contact() {
   };
   return (
     <div
-      className="showCaseDiv animated lightSpeedIn textDiv"
-      style={{ textAlign: "center", margin: "100px auto" }}
+      style={{ textAlign: "center", margin: "100px auto", maxWidth: "75vh" }}
     >
       <h2 style={h2Styles}>Don't be a stranger</h2>
       <p style={{ color: "#3e3e36ed", marginBottom: "26px" }}>
