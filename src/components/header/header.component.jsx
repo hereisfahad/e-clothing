@@ -60,7 +60,7 @@ const Header = () => {
         exact
         path="/SignIn/"
         render={() =>
-          currentUser ? <Redirect to="./" /> : <SignInAndSignUpPage />
+          currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
         }
       />
     </BrowserRouter>
