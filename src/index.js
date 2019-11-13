@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-import { Provider } from 'react-redux';
-import store from '../src/redux/store'; 
+import CartProvider from "./providers/cart/cart.provider";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>  
-, document.getElementById('root'));
+  <CartProvider>
+    <App />
+  </CartProvider>,
+  document.getElementById("root")
+);

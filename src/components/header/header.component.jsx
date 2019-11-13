@@ -1,5 +1,5 @@
 //header component needs currentUser for navbar
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, BrowserRouter, Route, Redirect } from "react-router-dom";
 
 import HomePage from "../../pages/homepage/homepage.component";
@@ -11,17 +11,16 @@ import CardDropdown from "../../components/cartDropdown/cart-dropdown.component"
 import Checkout from "../../pages/chekcout/checkout.componenet";
 import { auth } from "../../firebase/firebase.utils"; //use brakets :)
 
+import { CartContext } from "../../providers/cart/cart.provider";
+import UserContext from "../../context/user/user.context";
+
 import { ReactComponent as Logo } from "./crown.svg";
 import "./header.styles.scss";
 
-import UserContext from "../../context/user/user.context";
-
 const Header = () => {
   const currentUser = useContext(UserContext);
-  const [hidden, setHidden] = useState(true);
-  function toggleCartHidden() {
-    setHidden(!hidden);
-  }
+  const { hidden } = useContext(CartContext);
+
   return (
     <BrowserRouter>
       <div className="header">
@@ -48,7 +47,7 @@ const Header = () => {
               SignIn
             </Link>
           )}
-          <CartIcon toggleCartHidden={toggleCartHidden} />
+          <CartIcon />
         </div>
         {hidden ? null : <CardDropdown />}
       </div>

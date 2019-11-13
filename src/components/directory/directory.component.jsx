@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useContext } from "react";
 
-import MenuItem from '../menu-item/menu-item.component';
+import MenuItem from "../menu-item/menu-item.component";
 
-import { selectDirectorySections } from '../../redux/directory/directory-selectors';
-import { connect } from 'react-redux';
+import DirectoryContext from "../../context/directory/directory.context";
+import "./directory.styles.scss";
 
-import './directory.styles.scss';
-
-const Directory = ({ sections }) => (
-    <div className='directory-menu'>
-      { 
-        sections.map( ({ title, imageUrl, id, size, linkUrl }) => (//we can also sperad props
-        <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} linkUrl={linkUrl} />
-        ))
-      }
+const Directory = () => {
+  const sections = useContext(DirectoryContext);
+  return (
+    <div className="directory-menu">
+      {sections.map((
+        { title, imageUrl, id, size, linkUrl } //we can also sperad props
+      ) => (
+        <MenuItem
+          key={id}
+          title={title}
+          imageUrl={imageUrl}
+          size={size}
+          linkUrl={linkUrl}
+        />
+      ))}
     </div>
-);
+  );
+};
 
-const mapStateToProps = (state) =>(
-  {
-      sections: selectDirectorySections(state)
-  }
-);
-
-export default connect(mapStateToProps)(Directory);
+export default Directory;
