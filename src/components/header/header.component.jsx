@@ -12,13 +12,11 @@ import Checkout from "../../pages/chekcout/checkout.componenet";
 import { auth } from "../../firebase/firebase.utils"; //use brakets :)
 
 import { CartContext } from "../../providers/cart/cart.provider";
-import UserContext from "../../context/user/user.context";
-
 import { ReactComponent as Logo } from "./crown.svg";
+
 import "./header.styles.scss";
 
-const Header = () => {
-  const currentUser = useContext(UserContext);
+const Header = ({ currentUser }) => {
   const { hidden } = useContext(CartContext);
 
   return (

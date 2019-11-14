@@ -1,10 +1,8 @@
-// this component setCurrentUser by using contextApi
 import React from "react";
 
 import Header from "./components/header/header.component";
 import { auth, createUserDocumentInFireStore } from "./firebase/firebase.utils"; //use brakets :)
 
-import UserContext from "./context/user/user.context";
 import "./App.css";
 
 class App extends React.Component {
@@ -14,7 +12,6 @@ class App extends React.Component {
       currentUser: null
     };
   }
-
   componentDidMount() {
     // const { setCurrentUser } = this.props;
     auth.onAuthStateChanged(async userAuth => {
@@ -39,26 +36,17 @@ class App extends React.Component {
   }
 
   // unSunscribeUser = null; //does not make any sense
-  // componentWillUnmount(){
+  // componentWillUnmount() {
   //   this.unSunscribeUser();
   // }
 
   render() {
     return (
       <div>
-        <UserContext.Provider value={this.state.currentUser}>
-          <Header />
-        </UserContext.Provider>
+        <Header currentUser={this.state.currentUser} />
       </div>
     );
   }
 }
 
 export default App;
-
-/*<BrowserRouter >
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-        </Switch>
-</BrowserRouter >*/
