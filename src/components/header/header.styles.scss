@@ -1,23 +1,34 @@
-.header{
-    display: flex;
-    width: 100%;
-    height: 70px;
-    justify-content: space-between;
-    margin-bottom:10px;
+.header {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: space-between;
+  margin-bottom: 10px;
 
-    .logo-container{
-        height: 100%;
-        width:75px;
-        padding:25px;
+  .logo-container {
+    height: 100%;
+    width: 75px;
+    padding: 12px 0px;
+  }
+  .options {
+    height: 50%px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .option {
+    padding: 10px 15px;
+  }
+}
+
+@media screen and(max-width:545px) {
+  .header {
+    .options {
+      margin-left: 20px;
     }
-    .options{
-        height: 50%px;
-        width: 100%;
-        display: flex;
-        align-items:center;
-        justify-content: flex-end;
+    .option {
+      padding: 10px 7px;
     }
-    .option{
-        padding: 10px 15px;
-    }
+  }
 }
