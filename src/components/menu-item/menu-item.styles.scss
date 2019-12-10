@@ -1,8 +1,9 @@
 .menu-item {
   min-width: 30%;
   height: 240px;
-  flex: 1 1 auto;
+  flex: 1 0 230px;
   display: flex;
+  // display: grid;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
@@ -21,11 +22,6 @@
       opacity: 0.9;
     }
   }
-
-  &.large {//for last to menu items ..women and mens
-    height: 380px;
-  }
-
   // &:first-child {
   //   margin-right: 10.5px;
   // }
@@ -65,4 +61,17 @@
       font-size: 16px;
     }
   }
+}
+
+@media only screen and(max-width: 769px) {
+  // .menu-item.large {
+  //   height: 240px;
+  // }
+}
+
+@media only screen and(max-width: 530px) {
+  // .menu-item .content
+  //  {
+  //   height: 240px;
+  // }
 }
