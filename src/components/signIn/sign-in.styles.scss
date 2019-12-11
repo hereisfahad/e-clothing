@@ -1,13 +1,18 @@
 .sign-in {
-    width: 400px;//30 % of view width
-    display: flex;
-    flex-direction: column;
-  
-    .title {
-      margin: 10px 0;
-    }
-    .buttons{
-      display: flex;
-      justify-content: space-between;
-    }
+  width: 400px; //30 % of view width
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 10px 0;
   }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 680px) {
+  .buttons {
+    flex-direction: column;
+  }
+}
