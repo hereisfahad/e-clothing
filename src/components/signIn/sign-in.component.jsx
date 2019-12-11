@@ -66,7 +66,10 @@ class SignIn extends React.Component {
               {" "}
               Sign in With Google{" "}
             </CustomButton>
-            <CustomButton type="submit"> Sign Up </CustomButton>
+            <CustomButton onClick={() => this.props.handleState()}>
+              {" "}
+              Sign Up{" "}
+            </CustomButton>
           </div>
         </form>
       </div>
