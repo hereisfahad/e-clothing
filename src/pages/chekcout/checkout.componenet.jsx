@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { CartContext } from "../../providers/cart/cart.provider";
 import CheckoutItem from "../../components/checkoutItem/checkout-item.component";
-import StripeCheckoutButton from '../../components/stripebutton/stripe-button.component';
+import StripeCheckoutButton from "../../components/stripebutton/stripe-button.component";
 
 import "./checkout.styles.scss";
 
@@ -34,11 +34,11 @@ const Checkout = () => {
         <span>Total: ${cartTotal}</span>
       </div>
       <div className="test-warning">
-      *Please use the following test credit card for payments*
-      <br />
-      4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-    </div>
-      <StripeCheckoutButton price={total} />
+        *Please use the following test credit card for payments*
+        <br />
+        4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
+      </div>
+      <StripeCheckoutButton price={cartTotal} />
     </div>
   );
 };
