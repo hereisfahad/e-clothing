@@ -1,4 +1,5 @@
 import React from "react";
+// import { useSelector, useDispatch } from "react-redux";
 
 import Header from "./components/header/header.component";
 import { auth, createUserDocumentInFireStore } from "./firebase/firebase.utils"; //use brakets :)

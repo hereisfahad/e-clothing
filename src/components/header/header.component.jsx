@@ -1,5 +1,5 @@
 //header component needs currentUser for navbar
-import React, { useContext } from "react";
+import React from "react";
 import { Link, BrowserRouter, Route, Redirect } from "react-router-dom";
 
 import HomePage from "../../pages/homepage/homepage.component";
@@ -9,15 +9,14 @@ import SignInAndSignUpPage from "../../pages/sign-in-and-sign-up/sign-in-and-sig
 import CartIcon from "../../components/cartIcon/cart-icon.component";
 import CardDropdown from "../../components/cartDropdown/cart-dropdown.component";
 import Checkout from "../../pages/chekcout/checkout.componenet";
-import { auth } from "../../firebase/firebase.utils"; //use brakets :)
+import { auth } from "../../firebase/firebase.utils"; //use brakets :) bc of no default export
 
-import { CartContext } from "../../providers/cart/cart.provider";
 import { ReactComponent as Logo } from "./crown.svg";
-
+import { useSelector } from "react-redux";
 import "./header.styles.scss";
 
 const Header = ({ currentUser }) => {
-  const { hidden } = useContext(CartContext);
+  const hidden = useSelector(state => state.cartReducer.hidden);
 
   return (
     <BrowserRouter>
