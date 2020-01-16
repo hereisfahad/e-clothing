@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import CustomButton from "../customButton/custom-button.component";
 import CartItem from "../carrtItem/cart-item.component";
 import { withRouter } from "react-router-dom";
 import { toggleCartHidden } from "../../redux/actions/cartAction";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./cart-dropdown.styles.scss";
 
-import { CartContext } from "../../providers/cart/cart.provider";
-
 const CartDopdown = ({ history }) => {
-  const { cartItems } = useContext(CartContext);
   const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cartReducer.cartItems);
   return (
     <div className="cart-dropdown">
       <div className="cart-items">

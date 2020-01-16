@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { CartContext } from "../../providers/cart/cart.provider";
 import CheckoutItem from "../../components/checkoutItem/checkout-item.component";
 import StripeCheckoutButton from "../../components/stripebutton/stripe-button.component";
-
+import { useSelector } from "react-redux";
 import "./checkout.styles.scss";
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(state => state.cartReducer.cartItems);
+  const TotalPrice = useSelector(state => state.cartReducer.TotalPrice);
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -31,14 +31,14 @@ const Checkout = () => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className="total">
-        <span>Total: ${cartTotal}</span>
+        <span>Total: ${TotalPrice}</span>
       </div>
       <div className="test-warning">
         *Please use the following test credit card for payments*
         <br />
         4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
       </div>
-      <StripeCheckoutButton price={cartTotal} />
+      <StripeCheckoutButton price={TotalPrice} />
     </div>
   );
 };
